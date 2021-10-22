@@ -1,0 +1,44 @@
+1. Donde la zebra vive.
+2. Donde toma agua
+Variables Casas = [{red}, {green}, {ivory}, {yellow}, {blue}]
+conectadas unas a otras 
+
+Dominios = vecinos 
+Gustos de cada residente
+Mascotas por casa
+
+
+
+
+constraineds
+Posicion de las Casas
+
+Englishman -> red
+Spaniard   -> dog
+### Norwegian  -> [0](left house)
+### [ivory, green]
+[man2 -> zorro , man -> hershey]
+### kit kat -> yellow
+### [blue , Norwegian]
+smarties -> snakes
+kit kat (come galletas) -> orange juice
+ukranian -> te
+japanese -> Milky ways
+### [horse,someone -> kit kat]
+### coffe -> green 
+### [0,1,milk,3,4]
+
+[horse,yellow -> kit kat]
+
+[ivory, green -> coffe]
+
+[blue,Norwegian,milk,3,4]
+
+They  drink water in:
+Green house 
+yellow house
+
+
+
+
+
