@@ -6,15 +6,15 @@ class Speakers:
     def __init__(self):
         self.speakers = np.array([])
     def insert_speaker(self, speaker):
-        #for s in self.speakers:
-        #    s.connect_with_schedule(speaker)
+        for s in self.speakers:
+            s.connect_with_schedule(speaker)
         self.speakers = np.append(self.speakers, speaker)
     def have_cosecutive_hours(self, domains):
         dic = dict()
         for domain in domains:
             if (domain.day not in dic): 
                 dic[domain.day] = []
-            dic[domain.day].append(domains.hour)
+            dic[domain.day].append(domain.hour)
         for day in dic:
             hours = sorted(dic[day])
             element = hours[0]
@@ -30,6 +30,8 @@ class Speakers:
             request = True
             for speaker in self.speakers:
                 request = self.have_cosecutive_hours(speaker.assigneds)
+                if (request == False):
+                    return request
                 request = speaker.assigneds != []
                 if (request == False):
                     return request

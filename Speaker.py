@@ -1,9 +1,29 @@
+from Domain import Domain
 class Speaker:
-    def __init__(self, schedule, areas,is_international):
-        self.schedule = schedule
-        self.areas = areas
+    def __init__(self, domains,is_international):
+        self.domains = domains
         self.isInternational = is_international
+        self.same_schedule = []
         self.assigneds = []
+    def __lt__(self, other):
+        return len(self.domains) < len(other.domains)
+    def is_same_schedule(self, speaker):
+        for ext in speaker.domains:
+            for int in self.domains:
+                if (ext.get_format() == int.get_format()):
+                    return True
+        return False
+    def connect_with_schedule(self, speaker):
+        if (self.is_same_schedule(speaker)):
+            speaker.same_schedule.append(self)
+            self.same_schedule.append(speaker)
+    
+    def aggregate_assigned(self, domain):
+        self.assigneds.append(domain)
+
+    def delete_domain(self, domain):
+        if (domain in self.domains):
+            self.domains.remove(domain)
     
 '''
 class Speaker:
