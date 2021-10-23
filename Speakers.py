@@ -4,11 +4,17 @@ import numpy as np
 
 class Speakers:  
     def __init__(self):
-        self.speakers = np.array([])
+        self.speakers = []
     def insert_speaker(self, speaker):
         for s in self.speakers:
             s.connect_with_schedule(speaker)
-        self.speakers = np.append(self.speakers, speaker)
+        self.speakers.append(speaker)
+    def pop(self, speaker):
+        if speaker in self.speakers:
+            self.speakers.remove(speaker)     
+            return speaker
+        else:
+            return None
     def have_cosecutive_hours(self, domains):
         dic = dict()
         for domain in domains:
@@ -28,6 +34,8 @@ class Speakers:
                        
     def assigned_complete(self):
             request = True
+            if (request == False):
+                    return request
             for speaker in self.speakers:
                 request = self.have_cosecutive_hours(speaker.assigneds)
                 if (request == False):

@@ -5,6 +5,7 @@ def forward_checking(speaker,domain):
     speaker.aggregate_assigned(domain)
     for next_speaker in speaker.same_schedule:
         next_speaker.delete_domain(domain)
+    return True
 
 
 def MRV(speakers):
@@ -29,25 +30,53 @@ def least_constrained_value(speaker, speakers):
     #for i in all_consistent_values.queue:
     #    print(i.consist_values)
     request = reversed(all_consistent_values.queue)
+    return list(request)
+
+def order_domains(domains):
+    return []
+def function_consistent(value, speaker):
+    request = speaker.is_consistent(value)
     return request
 
+def backtrack(speakers_assigneds, speakers):
+    request = []
+    if (speakers_assigneds.assigned_complete() and len(speakers_assigneds.speakers)==2):
+        return speakers_assigneds
+    speakers_copy = copy.deepcopy(speakers)
+    speaker = MRV(speakers_copy.speakers)
+    values = least_constrained_value(speaker,speakers_copy)
+    speaker = MRV(speakers.speakers)
+    for value in values:
+        if (function_consistent(value, speaker)):
+            speaker = speakers.pop(speaker)
+            speakers_assigneds.insert_speaker(speaker)
+            
+            failure = forward_checking(speaker, value)
+            request = backtrack(speakers_assigneds,speakers)
+    return request
 
-
-
-def backtrack(speakers, weight, domains):
+def backtrack1(speakers, weight, domains):
+    request = []
     if (speakers.assigned_complete()):
         return speakers
     speaker = MRV(speakers.speakers)
-    speakers_ordered = least_constrained_value(speaker,speakers)
+    speakers_ordered = ordered_values(speaker.domains)#least_constrained_value(speaker,speakers)
     delta = 1
+    
     for value in list(speakers_ordered):
-        print(value.day, value.hour)
-        delta = delta * speakers.assigned_complete()
+        #print(value.day, value.hour)
+        delta = delta * function_consistent(value, speaker)
         if (delta == 0):
             continue
+        '''
+        for i in speakers:
+            print(i)
+            for j in speakers.domains:
+                print(j)
+        '''
         forward_checking(speaker,value)
         request = backtrack(speakers,weight*delta,domains)
-    return []
+    return request
     '''
     
     

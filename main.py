@@ -11,15 +11,25 @@ def init_domains_day(day, hours,areas):
             domains.append(Domain(day, hour, area))
     return domains
 domains = init_domains_day("lunes",[9,10,11,15,16,17],["Seguridad Informatica"])
-print(domains)
-s1 = Speaker(init_domains_day("lunes",[9,10,11,15,16,17],["Seguridad Informatica"]), True)
-s2 = Speaker(init_domains_day("lunes",[9,10,11,15,16,17],["Seguridad Informatica"]), True)
+s1 = Speaker(init_domains_day("lunes",[9,10],["Seguridad Informatica"]), True)
+s2 = Speaker(init_domains_day("lunes",[9,10],["Seguridad Informatica"]), True)
 speakers = Speakers()
 speakers.insert_speaker(s1)
 speakers.insert_speaker(s2)
-request = backtrack(speakers,1,domains)
+speakers_assigneds = Speakers()
+request = backtrack(speakers_assigneds,speakers)
 
-print(request)
+if (request == []):
+    print(request)
+else: 
+    for i in request.speakers:
+        print("==================")
+        for j in i.domains:
+            print(j.get_format())
+        print("-----asignados---------")
+        for j in i.assigneds:
+            print(j.get_format())
+
 '''
 schedule = {
                 "lunes":[9,10, 11,15,16,17], 

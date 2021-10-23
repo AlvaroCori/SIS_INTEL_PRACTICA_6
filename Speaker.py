@@ -24,6 +24,28 @@ class Speaker:
     def delete_domain(self, domain):
         if (domain in self.domains):
             self.domains.remove(domain)
+
+    def have_cosecutive_hours(self, domains):
+        dic = dict()
+        for domain in domains:
+            if (domain.day not in dic): 
+                dic[domain.day] = []
+            dic[domain.day].append(domain.hour)
+        for day in dic:
+            hours = sorted(dic[day])
+            element = hours[0]
+            for hour in hours[1:]:
+                if (element + 1 <= hour):
+                    return False
+                else:
+                    element = hour
+        return True
+
+    def is_consistent(self, value):
+        #print(self.have_cosecutive_hours(self.assigneds+[value]))
+        #print(value.get_format())
+        return self.have_cosecutive_hours(self.assigneds+[value])
+    
     
 '''
 class Speaker:
