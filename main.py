@@ -10,13 +10,13 @@ def init_domains_day(day, hours,areas):
         for area in areas:
             domains.append(Domain(day, hour, area))
     return domains
-domains = init_domains_day("lunes",[9,10,11,15,16,17],["Seguridad Informatica"])
+domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"])#init_domains_day("lunes",[9,10,11,15,16,17],["Seguridad Informatica"])
 s1 = Speaker(init_domains_day("lunes",[9,10],["Seguridad Informatica"]), True)
-s2 = Speaker(init_domains_day("lunes",[9,10],["Seguridad Informatica"]), True)
-speakers = Speakers()
+s2 = Speaker(init_domains_day("lunes",[9,10],["Seguridad Informatica"]), False)
+speakers = Speakers(domains)
 speakers.insert_speaker(s1)
 speakers.insert_speaker(s2)
-speakers_assigneds = Speakers()
+speakers_assigneds = Speakers(domains)
 request = backtrack(speakers_assigneds,speakers)
 
 if (request == []):

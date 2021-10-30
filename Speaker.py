@@ -17,7 +17,12 @@ class Speaker:
         if (self.is_same_schedule(speaker)):
             speaker.same_schedule.append(self)
             self.same_schedule.append(speaker)
-    
+
+    def disconnect_with_schedule(self, speaker):
+        if (self.is_same_schedule(speaker)):
+            speaker.same_schedule.remove(self)
+            self.same_schedule.remove(speaker)
+
     def aggregate_assigned(self, domain):
         self.assigneds.append(domain)
 
@@ -40,11 +45,21 @@ class Speaker:
                 else:
                     element = hour
         return True
-
+    def different_assigneds(self, domain):
+        for a in self.assigneds:
+            if(domain.get_format() == a.get_format()):
+                return False
+        return True
+    def domain_was_assigned(self, domain):
+        for speaker in self.same_schedule:
+            if (speaker.different_assigneds(domain)):
+                return True
+        return False
     def is_consistent(self, value):
-        #print(self.have_cosecutive_hours(self.assigneds+[value]))
-        #print(value.get_format())
-        return self.have_cosecutive_hours(self.assigneds+[value])
+        #horario siguiente a uno asignado
+        #mismo horario otro speaker
+        #print(self.have_cosecutive_hours(self.assigneds+[value]), self.domain_was_assigned(value))
+        return self.have_cosecutive_hours(self.assigneds+[value])  and self.domain_was_assigned(value)
     
     
 '''

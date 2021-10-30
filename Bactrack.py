@@ -17,7 +17,6 @@ def MRV(speakers):
 
 def least_constrained_value(speaker, speakers):
     all_consistent_values = PriorityQueue()
-
     for domain in speaker.domains:
             temp_speakers = copy.deepcopy(speakers)
             forward_checking(speaker, domain)
@@ -29,14 +28,18 @@ def least_constrained_value(speaker, speakers):
             speakers = temp_speakers
     #for i in all_consistent_values.queue:
     #    print(i.consist_values)
-    request = reversed(all_consistent_values.queue)
-    return list(request)
+    size = len(all_consistent_values.queue)
+    request = [[] for i in range(0,size)]
+    j = 0
+    for i in range(size-1, -1, -1):
+        request[j] = all_consistent_values.queue[i]
+        j = j + 1
+    return request
 
 def order_domains(domains):
     return []
 def function_consistent(value, speaker):
-    request = speaker.is_consistent(value)
-    return request
+    return speaker.is_consistent(value)
 
 def backtrack(speakers_assigneds, speakers):
     request = []
@@ -46,13 +49,17 @@ def backtrack(speakers_assigneds, speakers):
     speaker = MRV(speakers_copy.speakers)
     values = least_constrained_value(speaker,speakers_copy)
     speaker = MRV(speakers.speakers)
+    print("speaker", speaker.isInternational)
     for value in values:
+        print("Wwwwwwwwww", value.get_format(),speaker.isInternational)
         if (function_consistent(value, speaker)):
             speaker = speakers.pop(speaker)
             speakers_assigneds.insert_speaker(speaker)
-            
             failure = forward_checking(speaker, value)
             request = backtrack(speakers_assigneds,speakers)
+            if (request != []):
+                return request
+
     return request
 
 def backtrack1(speakers, weight, domains):
