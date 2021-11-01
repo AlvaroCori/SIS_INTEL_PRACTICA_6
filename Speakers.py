@@ -72,12 +72,12 @@ class Speakers:
     
     def comprobate_domain_avalaible(self, domain):
         count = 0
-        print("ssssssss")
+        #print("ssssssss")
         for speaker in self.speakers:
-            speaker.print_assigneds()
-            print("domain", domain.get_format())
-            print(speaker.exist_domain_context(domain))
-            print(speaker.is_consistent(domain))
+            #speaker.print_assigneds()
+            #print("domain", domain.get_format())
+            #print(speaker.exist_domain_context(domain))
+            #print(speaker.is_consistent(domain))
             if (speaker.exist_domain_context(domain) and speaker.is_consistent(domain)):
                 count = count + 1
             '''
@@ -87,7 +87,7 @@ class Speakers:
             if (speaker.exist_domain_context(domain) and  speaker.wasnt_assigned(domain) and speaker.is_consistent(domain)):
                 count = count + 1
             '''
-        print("Ssssssss", count)
+        #print("Ssssssss", count)
         return count >= 1
 
     def assigned_complete(self):

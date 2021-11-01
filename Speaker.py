@@ -6,7 +6,7 @@ class Speaker:
         self.same_schedule = []
         self.assigneds = []
     def __lt__(self, other):
-        return len(self.domains) < len(other.domains)
+        return len(self.assigneds) < len(other.assigneds)
 
     def print_domains(self):
         for d in self.domains:

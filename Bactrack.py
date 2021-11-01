@@ -18,7 +18,7 @@ def MRV(speakers):
     ordered_valuables = PriorityQueue()
     for speaker in speakers:
         ordered_valuables.put(speaker)
-
+    print(ordered_valuables.queue[0].isInternational,ordered_valuables.queue[1].isInternational)
     return ordered_valuables.get()
 
 def least_constrained_value(speaker, speakers):
@@ -59,7 +59,7 @@ def backtrack(speakers, level):
     values = least_constrained_value(speaker,speakers_copy)
     speaker = MRV(speakers.speakers)
     #print("speaker", speaker.isInternational)
-    print("speaker", speaker.assigneds)
+    #print("speaker", speaker.assigneds)
     for value in values:
         if (function_consistent(value, speaker)):
             failure = forward_checking(speaker, value)
@@ -74,51 +74,7 @@ def backtrack(speakers, level):
 
     return request
 
-def backtrack1(speakers, weight, domains):
-    request = []
-    if (speakers.assigned_complete()):
-        return speakers
-    speaker = MRV(speakers.speakers)
-    speakers_ordered = ordered_values(speaker.domains)#least_constrained_value(speaker,speakers)
-    delta = 1
-    
-    for value in list(speakers_ordered):
-        #print(value.day, value.hour)
-        delta = delta * function_consistent(value, speaker)
-        if (delta == 0):
-            continue
-        '''
-        for i in speakers:
-            print(i)
-            for j in speakers.domains:
-                print(j)
-        '''
-        forward_checking(speaker,value)
-        request = backtrack(speakers,weight*delta,domains)
-    return request
-    '''
-    
-    
-    
-    delta = 1
-    for value in list(speakers_ordered):
-        delta *= 1#function_weight(countries)
-        if (delta == 0):
-            continue
-        forward_checking(speaker,value)
-        request = backtrack(speakers,weight*delta,domains)
-    
-    delta = 1
-    for value in country.domains:
-        #delta *= function_weight(countries)
-        if (delta == 0):
-            continue
-        forward_checking(country,value)
-        request = backtrack(countries,weight*delta,domains)
-        #restore_values(country,value)
-    return request
-    '''
-    return speakers
+
 
 '''
 countries_name = ["A","B","C","D"]
