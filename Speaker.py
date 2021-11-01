@@ -7,6 +7,20 @@ class Speaker:
         self.assigneds = []
     def __lt__(self, other):
         return len(self.domains) < len(other.domains)
+
+    def print_domains(self):
+        for d in self.domains:
+                print(d.get_format())
+    def print_assigneds(self):
+        for d in self.assigneds:
+                print(d.get_format())
+    def exist_domain_context(self, domain):
+        request = False
+        for d in self.domains:
+            if (domain.get_format() == d.get_format()):
+                request = True
+                return  request
+        return request
     def is_same_schedule(self, speaker):
         for ext in speaker.domains:
             for int in self.domains:
@@ -40,7 +54,7 @@ class Speaker:
             hours = sorted(dic[day])
             element = hours[0]
             for hour in hours[1:]:
-                if (element + 1 <= hour):
+                if (element + 1 == hour or element -1 == hour):
                     return False
                 else:
                     element = hour
@@ -50,17 +64,28 @@ class Speaker:
             if(domain.get_format() == a.get_format()):
                 return False
         return True
-    def domain_was_assigned(self, domain):
+    def domain_wasnt_assigned(self, domain):
+        request = True
+        #print("ssss",self.same_schedule)
         for speaker in self.same_schedule:
+            request = False
             if (speaker.different_assigneds(domain)):
                 return True
-        return False
+        return request
+    def wasnt_assigned(self, value):
+        for a in self.assigneds:
+            if (a.get_format() == value.get_format()):
+                return False
+        return True
     def is_consistent(self, value):
         #horario siguiente a uno asignado
         #mismo horario otro speaker
-        #print(self.have_cosecutive_hours(self.assigneds+[value]), self.domain_was_assigned(value))
-        return self.have_cosecutive_hours(self.assigneds+[value])  and self.domain_was_assigned(value)
-    
+        #print("is_consist", value.get_format())
+        #print(self.wasnt_assigned(value) , self.have_cosecutive_hours(self.assigneds+[value]), self.domain_wasnt_assigned(value))
+        return self.wasnt_assigned(value) and self.have_cosecutive_hours(self.assigneds+[value])  and self.domain_wasnt_assigned(value)
+
+    def is_assigned_completed(self):
+        return self.have_cosecutive_hours(self.assigneds)
     
 '''
 class Speaker:

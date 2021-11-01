@@ -1,12 +1,18 @@
 from queue import PriorityQueue
 import copy
-
+counter = 0
 def forward_checking(speaker,domain):
+    speaker.aggregate_assigned(domain)
+    speaker.delete_domain(domain)
+    for next_speaker in speaker.same_schedule:
+        next_speaker.delete_domain(domain)
+    return False
+
+def forward_checking_2(speaker,domain):
     speaker.aggregate_assigned(domain)
     for next_speaker in speaker.same_schedule:
         next_speaker.delete_domain(domain)
-    return True
-
+    return False
 
 def MRV(speakers):
     ordered_valuables = PriorityQueue()
@@ -19,7 +25,7 @@ def least_constrained_value(speaker, speakers):
     all_consistent_values = PriorityQueue()
     for domain in speaker.domains:
             temp_speakers = copy.deepcopy(speakers)
-            forward_checking(speaker, domain)
+            forward_checking_2(speaker, domain)
             consist_values = 0
             for n in speaker.same_schedule:
                 consist_values += len(n.domains)
@@ -41,22 +47,28 @@ def order_domains(domains):
 def function_consistent(value, speaker):
     return speaker.is_consistent(value)
 
-def backtrack(speakers_assigneds, speakers):
+def backtrack(speakers, level):
+    global counter
+    counter = counter + 1
     request = []
-    if (speakers_assigneds.assigned_complete() and len(speakers_assigneds.speakers)==2):
-        return speakers_assigneds
+ 
+    if (speakers.assigned_complete()):# and len(speakers_assigneds.speakers)==1):
+        return speakers
     speakers_copy = copy.deepcopy(speakers)
     speaker = MRV(speakers_copy.speakers)
     values = least_constrained_value(speaker,speakers_copy)
     speaker = MRV(speakers.speakers)
-    print("speaker", speaker.isInternational)
+    #print("speaker", speaker.isInternational)
+    print("speaker", speaker.assigneds)
     for value in values:
-        print("Wwwwwwwwww", value.get_format(),speaker.isInternational)
         if (function_consistent(value, speaker)):
-            speaker = speakers.pop(speaker)
-            speakers_assigneds.insert_speaker(speaker)
             failure = forward_checking(speaker, value)
-            request = backtrack(speakers_assigneds,speakers)
+            if (failure == False):
+                speakers.assign_schedule(speaker, value)
+            else:
+                continue
+            
+            request = backtrack(copy.deepcopy(speakers), level+1)
             if (request != []):
                 return request
 

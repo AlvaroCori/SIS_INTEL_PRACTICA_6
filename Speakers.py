@@ -6,6 +6,8 @@ class Speakers:
     def __init__(self,domains):
         self.speakers = []
         self.domains = domains
+        self.assigneds = [False for i in range(len(domains))]
+
     def insert_speaker(self, speaker):
         for s in self.speakers:
             if (s == speaker):
@@ -13,6 +15,7 @@ class Speakers:
         for s in self.speakers:
             s.connect_with_schedule(speaker)
         self.speakers.append(speaker)
+    
     def pop(self, speaker):
         if speaker in self.speakers:
             self.speakers.remove(speaker)     
@@ -21,6 +24,17 @@ class Speakers:
             return speaker
         else:
             return None
+    def assign_schedule(self, speaker, domain):
+        for s in self.speakers:
+            if (speaker == s):
+                i = 0
+                for d in self.domains:
+                    if (d.get_format() == domain.get_format()):
+                        break
+                    i = i + 1
+                self.assigneds[i] = True
+                return True 
+        return False
     def have_cosecutive_hours(self, domains):
         dic = dict()
         for domain in domains:
@@ -55,12 +69,59 @@ class Speakers:
                 if (speaker.is_consistent(na)):
                     return True   
         return False
-        
+    
+    def comprobate_domain_avalaible(self, domain):
+        count = 0
+        print("ssssssss")
+        for speaker in self.speakers:
+            speaker.print_assigneds()
+            print("domain", domain.get_format())
+            print(speaker.exist_domain_context(domain))
+            print(speaker.is_consistent(domain))
+            if (speaker.exist_domain_context(domain) and speaker.is_consistent(domain)):
+                count = count + 1
+            '''
+            print(speaker.wasnt_assigned(domain))
+            print(speaker.is_consistent(domain))
+            print(domain.get_format())
+            if (speaker.exist_domain_context(domain) and  speaker.wasnt_assigned(domain) and speaker.is_consistent(domain)):
+                count = count + 1
+            '''
+        print("Ssssssss", count)
+        return count >= 1
+
     def assigned_complete(self):
             request = True
-            if (request == False):
-                    return request
+            
             for speaker in self.speakers:
+                if (speaker.is_assigned_completed()):
+                    continue
+                else:
+                    request = False
+                    break
+            
+            if (request == False):
+                return False
+            i = 0
+            
+            for a in self.assigneds.copy():
+                if (a):
+                    continue
+                else:
+                    if (self.comprobate_domain_avalaible(self.domains[i])==False):
+                        self.assigneds[i] = True
+                i = i + 1
+
+            for request in self.assigneds:
+                if (request):
+                    continue
+                else:
+                    request = False
+                    break
+            return request
+
+
+'''
                 #request = self.have_cosecutive_hours(speaker.assigneds)
                 if (request == False):
                     return request
@@ -68,4 +129,4 @@ class Speakers:
                 if (request == False):
                     return request
             #    request = request and speaker.assigned_complete()
-            return request
+'''
