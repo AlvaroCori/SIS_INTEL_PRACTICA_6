@@ -1,8 +1,9 @@
 from Domain import Domain
 class Speaker:
-    def __init__(self, domains,is_international):
+    def __init__(self, domains,is_international, name):
         self.domains = domains
         self.isInternational = is_international
+        self.name = name
         self.same_schedule = []
         self.assigneds = []
     def __lt__(self, other):

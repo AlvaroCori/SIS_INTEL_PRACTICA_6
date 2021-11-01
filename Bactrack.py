@@ -3,7 +3,7 @@ import copy
 counter = 0
 def forward_checking(speaker,domain):
     speaker.aggregate_assigned(domain)
-    speaker.delete_domain(domain)
+    #speaker.delete_domain(domain)
     for next_speaker in speaker.same_schedule:
         next_speaker.delete_domain(domain)
     return False
@@ -18,7 +18,6 @@ def MRV(speakers):
     ordered_valuables = PriorityQueue()
     for speaker in speakers:
         ordered_valuables.put(speaker)
-    print(ordered_valuables.queue[0].isInternational,ordered_valuables.queue[1].isInternational)
     return ordered_valuables.get()
 
 def least_constrained_value(speaker, speakers):
@@ -58,7 +57,7 @@ def backtrack(speakers, level):
     speaker = MRV(speakers_copy.speakers)
     values = least_constrained_value(speaker,speakers_copy)
     speaker = MRV(speakers.speakers)
-    #print("speaker", speaker.isInternational)
+    print("speaker", speaker.name)
     #print("speaker", speaker.assigneds)
     for value in values:
         if (function_consistent(value, speaker)):

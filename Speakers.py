@@ -72,21 +72,17 @@ class Speakers:
     
     def comprobate_domain_avalaible(self, domain):
         count = 0
-        #print("ssssssss")
+
         for speaker in self.speakers:
+            #if (domain.get_format() == "lunes-18-Seguridad Informatica"):
             #speaker.print_assigneds()
-            #print("domain", domain.get_format())
+            #print("domain", domain.get_format(),speaker.name)
             #print(speaker.exist_domain_context(domain))
             #print(speaker.is_consistent(domain))
             if (speaker.exist_domain_context(domain) and speaker.is_consistent(domain)):
                 count = count + 1
-            '''
-            print(speaker.wasnt_assigned(domain))
-            print(speaker.is_consistent(domain))
-            print(domain.get_format())
-            if (speaker.exist_domain_context(domain) and  speaker.wasnt_assigned(domain) and speaker.is_consistent(domain)):
-                count = count + 1
-            '''
+     
+        #if (domain.get_format() == "lunes-18-Seguridad Informatica"):
         #print("Ssssssss", count)
         return count >= 1
 
@@ -110,6 +106,7 @@ class Speakers:
                 else:
                     if (self.comprobate_domain_avalaible(self.domains[i])==False):
                         self.assigneds[i] = True
+
                 i = i + 1
 
             for request in self.assigneds:
