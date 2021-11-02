@@ -2,31 +2,30 @@ from Speaker import Speaker
 from Speakers import Speakers
 from Bactrack import *
 from Domain import Domain
+from cases import *
 domains = []
 
-def init_domains_day(day, hours,areas):
-    domains = []
-    for hour in hours:
-        for area in areas:
-            domains.append(Domain(day, hour, area))
-    return domains
-domains = init_domains_day("lunes",[9,10,11,15,16,17],["Seguridad Informatica"])+init_domains_day("martes",[9,10,11,15,16,17],["Seguridad Informatica"])
-s1 = Speaker(domains, True, "CJ")
+
+#domains = init_domains_day("lunes",[9,10,11,15,16,17],["Seguridad Informatica"])+init_domains_day("martes",[9,10,11,15,16,17],["Seguridad Informatica"])
+#s1 = Speaker(domains, True, "CJ")
 #s2 = Speaker(init_domains_day("lunes",[15],["Seguridad Informatica"])+init_domains_day("martes",[9,10],["Seguridad Informatica"]), False, "AJ")
-speakers = Speakers(domains)
-speakers.insert_speaker(s1)
+speakers = case_6()
+#speakers.insert_speaker(s1)
 #speakers.insert_speaker(s2)
 request = backtrack(speakers, 0)
+
 
 
 if (request == []):
     print(request)
 else: 
     for i in request.speakers:
-        print("==================")
+        print("=============================")
         print(f"nombre: {i.name}")
+        print(f"horario:")
         for j in i.domains:
-            print(j.get_format())
+            print(j.get_format(),end=", ")
+        print("-")
         print("-----asignados---------")
         for j in i.assigneds:
             print(j.get_format())

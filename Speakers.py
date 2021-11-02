@@ -39,7 +39,13 @@ class Speakers:
                 self.assigneds[i] = True
                 return True 
         return False
-                
+
+    def yet_assigned(self,value):
+        i = 0
+        for domain in self.domains:
+             if (domain.get_format() == value.get_format()):
+                 return self.assigneds[i]
+             i = i + 1   
     def comprobate_domains(self):
         ls = []
         not_assigneds = []
