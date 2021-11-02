@@ -78,43 +78,18 @@ class Speaker:
             if (a.get_format() == value.get_format()):
                 return False
         return True
+    def limit_speeches(self, domains):
+        return len(domains) <= 5
     def is_consistent(self, value):
         #horario siguiente a uno asignado
         #mismo horario otro speaker
         #print("is_consist", value.get_format())
         #print(self.wasnt_assigned(value) , self.have_cosecutive_hours(self.assigneds+[value]), self.domain_wasnt_assigned(value))
-        return self.wasnt_assigned(value) and self.have_cosecutive_hours(self.assigneds+[value])  and self.domain_wasnt_assigned(value)
+        return self.wasnt_assigned(value) and self.have_cosecutive_hours(self.assigneds+[value])  and self.domain_wasnt_assigned(value) and self.limit_speeches(self.assigneds+[value])
 
     def is_assigned_completed(self):
-        return self.have_cosecutive_hours(self.assigneds)
-    
-'''
-class Speaker:
-    def __init__(self, schedule, domains,is_international):
-        self.schedule = schedule
-        self.domains = domains
-        self.isInternational = is_international
-        self.same_schedule = []
-    def __lt__(self, other):
-        return len(self.domains) < len(other.domains)
-    def assigned_complete(self):
-        return self.same_schedule == []
-    def is_same_schedule(self, speaker):
-        for dic_ext in speaker.schedule:
-            for dic_int in self.schedule:
-                if (dic_ext != dic_int):
-                    continue
-                if (len(list(set(speaker.schedule[dic_ext]) & set(self.schedule[dic_int])))>0):
-                    return True
-        return False
-    def connect_with_schedule(self, speaker):
-        if (self.is_same_schedule(speaker)):
-            speaker.same_schedule.append(self)
-            self.same_schedule.append(speaker)
-    def delete_domain(self, domain):
-        if (domain in self.domains):
-            self.domains.remove(domain)
-'''
+        return self.have_cosecutive_hours(self.assigneds) and self.limit_speeches(self.assigneds)
+
 #Difference between two lists
 #https://stackoverflow.com/questions/3462143/get-difference-between-two-lists
 #Priority interation
