@@ -7,7 +7,11 @@ class Speakers:
         self.speakers = []
         self.domains = domains
         self.assigneds = [False for i in range(len(domains))]
-
+    def print_domains_and_assigneds(self):
+        i = 0
+        for domain in self.domains:
+            print(domain.get_format(), self.assigneds[i])
+            i = i + 1 
     def insert_speaker(self, speaker):
         for s in self.speakers:
             if (s == speaker):
@@ -35,21 +39,6 @@ class Speakers:
                 self.assigneds[i] = True
                 return True 
         return False
-    def have_cosecutive_hours(self, domains):
-        dic = dict()
-        for domain in domains:
-            if (domain.day not in dic): 
-                dic[domain.day] = []
-            dic[domain.day].append(domain.hour)
-        for day in dic:
-            hours = sorted(dic[day])
-            element = hours[0]
-            for hour in hours[1:]:
-                if (element + 1 <= hour):
-                    return False
-                else:
-                    element = hour
-        return True
                 
     def comprobate_domains(self):
         ls = []
@@ -70,45 +59,43 @@ class Speakers:
                     return True   
         return False
     
-    def comprobate_domain_avalaible(self, domain):
+    def comprobate_domain_avalaible(self, domain,level):
         count = 0
-
+        
+            
         for speaker in self.speakers:
-            #if (domain.get_format() == "lunes-18-Seguridad Informatica"):
-            #speaker.print_assigneds()
-            #print("domain", domain.get_format(),speaker.name)
-            #print(speaker.exist_domain_context(domain))
-            #print(speaker.is_consistent(domain))
-            if (speaker.exist_domain_context(domain) and speaker.is_consistent(domain)):
+            #if (domain.get_format() == "martes-9-Seguridad Informatica"):
+                #speaker.print_assigneds()
+                #print("domain", domain.get_format(),speaker.name)
+                #print(speaker.exist_domain_context(domain))
+                #print(speaker.is_consistent(domain))
+            if (speaker.exist_domain_context(domain,level) and speaker.is_consistent(domain)):
                 count = count + 1
      
-        #if (domain.get_format() == "lunes-18-Seguridad Informatica"):
-        #print("Ssssssss", count)
+        #if (domain.get_format() == "martes-9-Seguridad Informatica"):
+        #    print("Ssssssss", count)
         return count >= 1
 
-    def assigned_complete(self):
+    def assigned_complete(self,level):
             request = True
-            
             for speaker in self.speakers:
                 if (speaker.is_assigned_completed()):
                     continue
                 else:
                     request = False
                     break
-            
             if (request == False):
                 return False
             i = 0
-            
             for a in self.assigneds.copy():
+
                 if (a):
+                    i = i + 1
                     continue
                 else:
-                    if (self.comprobate_domain_avalaible(self.domains[i])==False):
+                    if (self.comprobate_domain_avalaible(self.domains[i],level)==False):
                         self.assigneds[i] = True
-
                 i = i + 1
-
             for request in self.assigneds:
                 if (request):
                     continue

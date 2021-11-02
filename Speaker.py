@@ -15,7 +15,7 @@ class Speaker:
     def print_assigneds(self):
         for d in self.assigneds:
                 print(d.get_format())
-    def exist_domain_context(self, domain):
+    def exist_domain_context(self, domain,level):
         request = False
         for d in self.domains:
             if (domain.get_format() == d.get_format()):

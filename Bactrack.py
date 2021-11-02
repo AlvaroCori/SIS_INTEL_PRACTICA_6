@@ -51,14 +51,22 @@ def backtrack(speakers, level):
     counter = counter + 1
     request = []
  
-    if (speakers.assigned_complete()):# and len(speakers_assigneds.speakers)==1):
+    if (speakers.assigned_complete(level)):# and len(speakers_assigneds.speakers)==1):
         return speakers
     speakers_copy = copy.deepcopy(speakers)
     speaker = MRV(speakers_copy.speakers)
     values = least_constrained_value(speaker,speakers_copy)
     speaker = MRV(speakers.speakers)
-    print("speaker", speaker.name)
-    #print("speaker", speaker.assigneds)
+    '''
+    print("llll")
+    for s in speakers.speakers:
+        print("speaker", s.name,level)
+        for d in s.assigneds:
+            print("dominio", d.get_format(),level)
+    print("llll")
+    '''
+    #speakers.print_domains_and_assigneds()
+    
     for value in values:
         if (function_consistent(value, speaker)):
             failure = forward_checking(speaker, value)
