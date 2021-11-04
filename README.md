@@ -15,8 +15,8 @@ _ Computer Security (Seguridad Informatica)
 The talks in the three areas are held in parallel.
 The talks are from Monday to Friday, from 9 to 12 and from 15 to 18 hours.
 The Conditions are:
-_ The speakers chose his schedules.
-_ Two speakers can’t take the same hour and day for an area but they can if the area is different In the same hour and day.
+_ The speakers chose his schedules. 
+_ Two speakers can’t take the same hour and day for an area but they can if the area is different In the same hour and day. 
 _ A speaker only can give 5 speeches.
 _ Not always
 _ Two international speakers can’t talk the same time although they give different areas.
@@ -47,9 +47,9 @@ The speaker have a name for identify who will realize the speech, the speaker ha
 The speakers is a class that contain all variables or speakers of the event, also have all the domains or the horary of all speech of the event. The domains in the speakers are different than the domains of every speaker. Each domain of a speaker can be in domains of the speakers but Each domain of speakers don’t always be in the domains of a singulary speaker. The assigneds are an array of Booleans that mark if the domain was assigned. The domains and the assigneds mark if all the programation of the event is consistency.
 Exist three forms to mark an assigned domain in speakers.
 
-1.	There is no speaker who can at that time of day.
-2.	The domain was assigned an one speaker and is consistency.
-3.	A speaker can give a speech in that domain but is not consistent with other schedules or speakers.  
+1.	There is no speaker who can at that time of day. (In the grafic Assignation of the calendar during the execution of the algorithm the red stars).
+2.	The domain was assigned an one speaker and is consistency. (In the grafic Assignation of the calendar during the execution of the algorithm the name of speakers).
+3.	A speaker can give a speech in that domain but is not consistent with other schedules or speakers.  (In the grafic Assignation of the calendar during the execution of the algorithm the blue star).
 
 
 We apply a backtrack solution using:
