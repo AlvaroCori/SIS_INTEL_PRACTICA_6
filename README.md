@@ -23,11 +23,38 @@ _ Not always
 _ Two international speakers can’t talk the same time although they give different areas.
 ## Description Of the Solution
 ![model_graph](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/modelo_grafo.png)
+
+The problem can solve with a graph of speakers where the speakers are nodes and the edge are the clash of hour and day into two speakers.
+I choose this form because many conditions need to know who speaker schedule fall in inconsistency by other schedule speaker.
+
+
+#### Objects used in this practice.
+
 ![domain](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/domain.png)
+
+The domain is like a number or an identity for every speech. If we see a speech like a 3D the vectors are (hour, day, area). Well, if we reunite these values, we can assign at the variables the values that they will take in the week of the event. 
+_ If we compare the hour, day and area like a unique value we can compare this in the schedule of week and the schedule of a speaker.
+_ The form of a domain could be a dictionary but I need an intelligent object that have method to compare the attributes.
+
 ![speaker](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/speaker.png)
+
+The speaker have a name for identify who will realize the speech, the speaker have his domains because the speaker choose what days can adjust his times, also they have a Boolean if the speaker came from another country, also every speaker have a array of reference to other speakers that have at least one hour in both schedules in the same day (see the Graph Solution) and every speaker have a array of domains assigned that contain the hour, day and area that the speaker will realize, this values are unique and cannot be replied in other speaker.
+
 ![speakers](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/speakers.png)
+
+The speakers is a class that contain all variables or speakers of the event, also have all the domains or the horary of all speech of the event. The domains in the speakers are different than the domains of every speaker. Each domain of a speaker can be in domains of the speakers but Each domain of speakers don’t always be in the domains of a singulary speaker. The assigneds are an array of Booleans that mark if the domain was assigned. The domains and the assigneds mark if all the programation of the event is consistency.
+Exist three forms to mark an assigned domain in speakers.
+
+1.	There is no speaker who can at that time of day.
+2.	The domain was assigned an one speaker and is consistency.
+3.	A speaker can give a speech in that domain but is not consistent with other schedules or speakers.  
+
+
 ![case_assign](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/algorithm_case.png)
+
 ![case_assign_schedules](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/algorithm_case_assigneds.png)
+
+
 ## Experiments And Results
 
 ## Conclusions
