@@ -76,6 +76,13 @@ _ Ask if at the same time and day there is only one international guest at that 
 
 If the domain pass those restrictions, it is assigned if it is not, passed to the next domain and if there is no domain that can be assigned, returns an empty list and the back or backtrack is returned.
 
+The algorithm can:
+
+_ Compare hours into 1 - 23.
+
+_ Compare days into monday - sunday
+
+_ Compare all the areas of the university , (more than the 3).
 
 ## Diagram of a simple solution
 ![case_assign](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/algorithm_case.png)
@@ -90,6 +97,10 @@ If the domain pass those restrictions, it is assigned if it is not, passed to th
 #### Assigneds are the results
 
 ### 1° experiment
+
+Schedule of the week: 
+
+lunes 9-10 Seguridad Informatica
 
 =============================
 
@@ -115,6 +126,10 @@ lunes-10-Seguridad Informatica
 
 ### 2° experiment
 
+Schedule of the week: 
+
+lunes 9-11 Seguridad Informatica
+
 =============================
 
 name: Pepe
@@ -138,6 +153,10 @@ schedule: lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica.
 lunes-10-Seguridad Informatica
 
 ### 3° experiment
+
+Schedule of the week: 
+
+lunes 9 - 11 15 - 17 Seguridad Informatica
 
 =============================
 
@@ -166,6 +185,14 @@ lunes-17-Seguridad Informatica
 lunes-10-Seguridad Informatica
 
 ### 4° experiment
+
+Schedule of the week: 
+
+lunes 9 - 11 15 - 17 Seguridad Informatica
+
+martes 9 - 11 15 - 17 Seguridad Informatica
+
+miercoles 9 - 11 15 - 17 Seguridad Informatica
 
 =============================
 
@@ -205,6 +232,12 @@ miercoles-9-Seguridad Informatica
 
 ### 5° experiment
 
+Schedule of the week: 
+
+lunes 9-11 Seguridad Informatica
+
+lunes 9-11 Ingenieria de Software
+
 =============================
 
 name: Pepe
@@ -230,6 +263,10 @@ lunes-11-Ingenieria de Software
 lunes-9-Ingenieria de Software
 
 ### 6° expirement
+
+Schedule of the week: 
+
+lunes 9-11 Seguridad Informatica
 
 =============================
 
@@ -264,6 +301,14 @@ lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Segurida
 lunes-9-Seguridad Informatica
 
 ### 7° expirement
+
+Schedule of the week: 
+
+lunes 9-11 Seguridad Informatica
+
+lunes 9-11 Ingenieria de Software
+
+lunes 9-11 Inteligencia Artificial
 
 =============================
 
