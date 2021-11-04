@@ -167,6 +167,179 @@ lunes-10-Seguridad Informatica
 
 ### 4° experiment
 
+=============================
+
+name: Pepe
+
+schedule: lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica, lunes-15-Seguridad Informatica, lunes-16-Seguridad Informatica, lunes-17-Seguridad Informatica, martes-9-Seguridad Informatica, martes-10-Seguridad Informatica, martes-11-Seguridad Informatica, martes-15-Seguridad Informatica, martes-16-Seguridad Informatica, martes-17-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-17-Seguridad Informatica
+
+lunes-10-Seguridad Informatica
+
+lunes-15-Seguridad Informatica
+
+martes-11-Seguridad Informatica
+
+martes-9-Seguridad Informatica
+
+=============================
+
+name: Lettie
+
+schedule: martes-9-Seguridad Informatica, martes-10-Seguridad Informatica, martes-11-Seguridad Informatica, martes-15-Seguridad Informatica, martes-16-Seguridad Informatica, martes-17-Seguridad Informatica, miercoles-9-Seguridad Informatica, miercoles-10-Seguridad Informatica, miercoles-11-Seguridad Informatica, miercoles-15-Seguridad Informatica, miercoles-16-Seguridad Informatica, miercoles-17-Seguridad Informatica.
+
+-----assigneds---------
+
+martes-10-Seguridad Informatica
+
+miercoles-16-Seguridad Informatica
+
+martes-15-Seguridad Informatica
+
+miercoles-11-Seguridad Informatica
+
+miercoles-9-Seguridad Informatica
+
+### 5° experiment
+
+=============================
+
+name: Pepe
+
+schedule: lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-11-Seguridad Informatica
+
+lunes-9-Seguridad Informatica
+
+=============================
+
+name: Lettie
+
+schedule: lunes-9-Ingenieria de Software, lunes-10-Ingenieria de Software, lunes-11-Ingenieria de Software.
+
+-----assigneds---------
+
+lunes-11-Ingenieria de Software
+
+lunes-9-Ingenieria de Software
+
+### 6° expirement
+
+=============================
+
+name: Pepe
+
+schedule: lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-11-Seguridad Informatica
+
+=============================
+
+name: Lettie
+
+schedule: lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-10-Seguridad Informatica
+
+=============================
+
+name: Lann
+
+schedule:
+
+lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-9-Seguridad Informatica
+
+### 7° expirement
+
+=============================
+
+name: Pepe
+
+schedule: lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-11-Seguridad Informatica
+
+lunes-9-Seguridad Informatica
+
+=============================
+
+name: Lettie
+
+schedule: lunes-9-Ingenieria de Software, lunes-10-Ingenieria de Software, lunes-11-Ingenieria de Software.
+
+-----assigneds---------
+
+lunes-11-Ingenieria de Software
+
+=============================
+
+name: Tommy
+
+schedule: lunes-9-Inteligencia Artificial, lunes-10-Inteligencia Artificial, lunes-11-Inteligencia Artificial.
+
+-----assigneds---------
+
+lunes-11-Inteligencia Artificial
+
+lunes-9-Inteligencia Artificial
+
+=============================
+
+name: Aitor
+
+schedule: lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-10-Seguridad Informatica
+
+=============================
+
+name: Selene
+
+schedule: lunes-9-Ingenieria de Software, lunes-10-Ingenieria de Software, lunes-11-Ingenieria de Software.
+
+-----assigneds---------
+
+lunes-10-Ingenieria de Software
+
+=============================
+
+name: Mana
+
+schedule: lunes-9-Inteligencia Artificial, lunes-10-Inteligencia Artificial, lunes-11-Inteligencia Artificial.
+
+-----assigneds---------
+
+lunes-10-Inteligencia Artificial
+
+=============================
+
+name: Rico
+
+schedule: lunes-9-Ingenieria de Software, lunes-10-Ingenieria de Software, lunes-11-Ingenieria de Software.
+
+-----assigneds---------
+
+lunes-9-Ingenieria de Software
+
+
 ## Conclusions
 A restricted backtrack could be implemented by applying a graph of speakers connected to each other according to their schedules. Most of the restrictions could be implemented but the case of international speakers still needs to be correctly implemented. The backjumping algorithm can perhaps be used to optimize larger schedules but for this case in which at most last 5 days of the week the backtrack algorithm is fast enough to evaluate the situation and achieve a complete assignment by distributing the schedules between the speakers.
 
