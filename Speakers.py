@@ -46,6 +46,20 @@ class Speakers:
              if (domain.get_format() == value.get_format()):
                  return self.assigneds[i]
              i = i + 1   
+    
+    def international_in_different_schedule(self, value, speaker):
+        request = True
+        if (speaker.isInternational):
+            for s in self.speakers:
+                if (s.name == speaker.name):
+                    continue
+                if (s.isInternational):
+                    for domain in s.assigneds:
+                        if (domain.get_schedule() == value.get_schedule()):
+                            return False
+                            
+        return request
+
     def comprobate_domains(self):
         ls = []
         not_assigneds = []

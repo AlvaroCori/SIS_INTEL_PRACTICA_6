@@ -10,3 +10,5 @@ class Domain:
     
     def get_format(self):
         return str(self.day)+"-"+str(self.hour)+"-"+self.theme
+    def get_schedule(self):
+        return str(self.day)+"-"+str(self.hour)

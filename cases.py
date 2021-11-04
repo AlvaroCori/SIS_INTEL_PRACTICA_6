@@ -58,8 +58,19 @@ def case_5():
     speakers.insert_speaker(s1)
     speakers.insert_speaker(s2)
     return speakers
-#7 speakers of different areas 
+#case with 3 speakers with clash of schedule
 def case_6():
+    s1 = Speaker(domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"]),is_international=False,name = "Pepe")
+    s2 = Speaker(domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"]),is_international=False,name = "Lettie")
+    s3 = Speaker(domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"]),is_international=False,name = "Lann")
+    domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"])
+    speakers = Speakers(domains)
+    speakers.insert_speaker(s1)
+    speakers.insert_speaker(s2)
+    speakers.insert_speaker(s3)
+    return speakers
+#7 speakers of different areas 
+def case_7():
     s1 = Speaker(domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"]),is_international=False,name = "Pepe")
     s2 = Speaker(domains = init_domains_day("lunes",[9,10,11],["Ingenieria de Software"]),is_international=False,name = "Lettie")
     s3 = Speaker(domains = init_domains_day("lunes",[9,10,11],["Inteligencia Artificial"]),is_international=False,name = "Tommy")
@@ -78,13 +89,16 @@ def case_6():
     speakers.insert_speaker(s7)
     return speakers
 
-def case_7():
-    s1 = Speaker(domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"]),is_international=False,name = "Pepe")
-    s2 = Speaker(domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"]),is_international=False,name = "Lettie")
-    s3 = Speaker(domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"]),is_international=False,name = "Lann")
-    domains = init_domains_day("lunes",[9,10,11],["Seguridad Informatica"])
+
+'''
+def case_8():
+    s1 = Speaker(domains = init_domains_day("lunes",[9,10,11,15,16,17],["Seguridad Informatica"]),is_international=True,name = "Pepe")
+    s2 = Speaker(domains = init_domains_day("lunes",[9,10,11,15,16,17],["Ingenieria de Software"]),is_international=True,name = "Lettie")
+    s3 = Speaker(domains = init_domains_day("lunes",[9,10,11,15,16,17],["Inteligencia Artificial"]),is_international=True,name = "Joe")
+    domains = init_domains_day("lunes",[9,10,11,15,16,17],["Seguridad Informatica","Ingenieria de Software","Inteligencia Artificial"])
     speakers = Speakers(domains)
     speakers.insert_speaker(s1)
     speakers.insert_speaker(s2)
     speakers.insert_speaker(s3)
-    return speakers
+    return speakerS
+'''
