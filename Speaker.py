@@ -90,7 +90,3 @@ class Speaker:
     def is_assigned_completed(self):
         return self.have_cosecutive_hours(self.assigneds) and self.limit_speeches(self.assigneds)
 
-#Difference between two lists
-#https://stackoverflow.com/questions/3462143/get-difference-between-two-lists
-#Priority interation
-#https://stackoverflow.com/questions/25823905/how-to-iterate-over-a-priority-queue

@@ -38,7 +38,7 @@ def least_constrained_value(speaker, speakers):
 def order_domains(domains):
     return []
 def function_consistent(value, speaker, speakers):
-    return speakers.yet_assigned(value) == False and speaker.is_consistent(value)
+    return  speakers.yet_assigned(value) == False and speaker.is_consistent(value) #and speakers.international_in_different_schedule(value, speaker)
 
 def backtrack(speakers, level):
     global counter
@@ -86,8 +86,7 @@ domains = ["R","G","B"]
 countries = variables_class(countries_name,conexions,domains)
 backtrack(countries, domains)
 '''
-#Priority Queue
-#https://docs.python.org/3/library/queue.html 
+
 
 def arc_consistency(country, domain):
     country.domain = [domain]# se queda solo con su color
