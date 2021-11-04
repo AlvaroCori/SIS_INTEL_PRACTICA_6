@@ -2,7 +2,6 @@
 ## Alvaro Bryan Cori Sanchez
 ## Practice 6 - PSSR - Search of Backtracking with constraints.
 
-PSSR
 ## Description Of Problem
 
 In this PSSR we use algorithms of backtracking search, we will search a combination of variables with domains that satisfy a Serie of constraining’s, the algorithm is util when the nodes must to obedience some conditions and the conjunct of conditions make the graph a system of constraining that need be verified with care because we can get a Serie of conditions with bad results because some nodes cannot get a domain.
@@ -87,6 +86,86 @@ If the domain pass those restrictions, it is assigned if it is not, passed to th
 
 
 ## Experiments And Results
+
+#### Assigneds are the results
+
+### 1° experiment
+
+=============================
+
+name: Pepe
+
+shedule: lunes-9-Seguridad Informatica.
+
+
+----- asiggneds ---------
+
+lunes-9-Seguridad Informatica
+
+=============================
+
+nombre: Lettie
+
+shedule lunes-10-Seguridad Informatica.
+
+----- assigneds ---------
+
+lunes-10-Seguridad Informatica
+
+
+### 2° experiment
+
+=============================
+
+name: Pepe
+
+schedule: lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-11-Seguridad Informatica
+
+lunes-9-Seguridad Informatica
+
+=============================
+
+name: Lettie
+
+schedule: lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-10-Seguridad Informatica
+
+### 3° experiment
+
+=============================
+
+name: Pepe
+
+schedule: lunes-9-Seguridad Informatica, lunes-10-Seguridad Informatica, lunes-11-Seguridad Informatica, lunes-15-Seguridad Informatica, lunes-16-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-16-Seguridad Informatica
+
+lunes-11-Seguridad Informatica
+
+lunes-9-Seguridad Informatica
+
+=============================
+
+name: Lettie
+
+schedule: lunes-10-Seguridad Informatica, lunes-17-Seguridad Informatica.
+
+-----assigneds---------
+
+lunes-17-Seguridad Informatica
+
+lunes-10-Seguridad Informatica
+
+### 4° experiment
 
 ## Conclusions
 A restricted backtrack could be implemented by applying a graph of speakers connected to each other according to their schedules. Most of the restrictions could be implemented but the case of international speakers still needs to be correctly implemented. The backjumping algorithm can perhaps be used to optimize larger schedules but for this case in which at most last 5 days of the week the backtrack algorithm is fast enough to evaluate the situation and achieve a complete assignment by distributing the schedules between the speakers.
