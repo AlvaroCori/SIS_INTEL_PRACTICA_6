@@ -22,26 +22,27 @@ _ A speaker only can give 5 speeches.
 _ Not always
 _ Two international speakers can’t talk the same time although they give different areas.
 ## Description Of the Solution
+## Graph Solution
 ![model_graph](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/modelo_grafo.png)
-
+## Own Elaboration
 The problem can solve with a graph of speakers where the speakers are nodes and the edge are the clash of hour and day into two speakers.
 I choose this form because many conditions need to know who speaker schedule fall in inconsistency by other schedule speaker.
 
 
-#### Objects used in this practice.
-
+#### Classes used in this practice.
+## Domain Solution
 ![domain](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/domain.png)
-
+#### Own Elaboration
 The domain is like a number or an identity for every speech. If we see a speech like a 3D the vectors are (hour, day, area). Well, if we reunite these values, we can assign at the variables the values that they will take in the week of the event. 
 _ If we compare the hour, day and area like a unique value we can compare this in the schedule of week and the schedule of a speaker.
 _ The form of a domain could be a dictionary but I need an intelligent object that have method to compare the attributes.
-
+## Variable Solution, Speaker
 ![speaker](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/speaker.png)
-
+#### Own Elaboration
 The speaker have a name for identify who will realize the speech, the speaker have his domains because the speaker choose what days can adjust his times, also they have a Boolean if the speaker came from another country, also every speaker have a array of reference to other speakers that have at least one hour in both schedules in the same day (see the Graph Solution) and every speaker have a array of domains assigned that contain the hour, day and area that the speaker will realize, this values are unique and cannot be replied in other speaker.
-
+## Manager of the graph, speakers and domains
 ![speakers](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/speakers.png)
-
+#### Own Elaboration
 The speakers is a class that contain all variables or speakers of the event, also have all the domains or the horary of all speech of the event. The domains in the speakers are different than the domains of every speaker. Each domain of a speaker can be in domains of the speakers but Each domain of speakers don’t always be in the domains of a singulary speaker. The assigneds are an array of Booleans that mark if the domain was assigned. The domains and the assigneds mark if all the programation of the event is consistency.
 Exist three forms to mark an assigned domain in speakers.
 
@@ -49,15 +50,18 @@ Exist three forms to mark an assigned domain in speakers.
 2.	The domain was assigned an one speaker and is consistency.
 3.	A speaker can give a speech in that domain but is not consistent with other schedules or speakers.  
 
-
+## Diagram of a simple solution
 ![case_assign](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/algorithm_case.png)
-
+#### Own Elaboration
+## Assignation of the calendar during the execution of the algorithm
 ![case_assign_schedules](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/algorithm_case_assigneds.png)
+#### Own Elaboration
 
 
 ## Experiments And Results
 
 ## Conclusions
+A restricted backtrack could be implemented by applying a graph of speakers connected to each other according to their schedules. Most of the restrictions could be implemented but the case of international speakers still needs to be correctly implemented. The backjumping algorithm can perhaps be used to optimize larger schedules but for this case in which at most last 5 days of the week the backtrack algorithm is fast enough to evaluate the situation and achieve a complete assignment by distributing the schedules between the speakers.
 
 ## Bibliography
 
