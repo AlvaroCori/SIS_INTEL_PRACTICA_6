@@ -22,6 +22,8 @@ _ A speaker only can give 5 speeches.
 _ Not always
 _ Two international speakers can’t talk the same time although they give different areas.
 ## Description Of the Solution
+
+
 ## Graph Solution
 ![model_graph](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/modelo_grafo.png)
 ## Own Elaboration
@@ -49,6 +51,32 @@ Exist three forms to mark an assigned domain in speakers.
 1.	There is no speaker who can at that time of day.
 2.	The domain was assigned an one speaker and is consistency.
 3.	A speaker can give a speech in that domain but is not consistent with other schedules or speakers.  
+
+
+We apply a backtrack solution using:
+
+Forward Checking .- This algorithm assigns each speaker its unique domain and removes the domain of neighboring speakers who no longer need it.
+
+MRV .- The algorithm sorts from higher to lower the speakers that will be assigned based on the number of domains that were assigned.
+
+Least constrained value .- The algorithm does is assign a domain to a speaker and count the number of domains left in their speakers that share hours after they’ve removed the domain assigned to the speaker, the algorithm returns a list of the domain with more chances of being unique compared to the domains with more chances to return other value.
+
+The restrictions are observed when we do the forward checking, first we ask if the speaker restrictions are met and then we allow you to assign permanently and move to the next speaker. The full assignment also monitors if all speakers are consistent.
+
+The restrictions were resolved as follows: A candidate domain to be assigned to a speaker is asked the following restrictions. 
+
+_ Asks if the domain was not assigned in other speakers.
+
+ _ Asks if the domain does not have a consecutive schedule (there is no other domain one hour before or after).
+
+_ Asks if the domain was not previously assigned. 
+
+_ Ask if the allotted limit does not exceed 5 speeches.
+
+_ Ask if at the same time and day there is only one international guest at that time. 
+
+If the domain pass those restrictions, it is assigned if it is not, passed to the next domain and if there is no domain that can be assigned, returns an empty list and the back or backtrack is returned.
+
 
 ## Diagram of a simple solution
 ![case_assign](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/algorithm_case.png)
