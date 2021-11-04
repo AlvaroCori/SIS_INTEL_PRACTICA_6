@@ -22,7 +22,12 @@ _ A speaker only can give 5 speeches.
 _ Not always
 _ Two international speakers can’t talk the same time although they give different areas.
 ## Description Of the Solution
-
+![model_graph](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/modelo_grafo.png)
+![domain](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/domain.png)
+![speaker](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/speaker.png)
+![speakers](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/speakers.png)
+![case_assign](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/algorithm_case.png)
+![case_assign_schedules](https://github.com/AlvaroCori/SIS_INTEL_PRACTICA_6/blob/main/img/algorithm_case_assigneds.png)
 ## Experiments And Results
 
 ## Conclusions
